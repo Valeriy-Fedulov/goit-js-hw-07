@@ -1,50 +1,7 @@
-// В HTML есть список категорий ul#categories.
+const categorieEl = document.querySelectorAll('.item');
+console.log(`В списке ${categorieEl.length} категории.`);
 
-// <ul id="categories">
-//   <li class="item">
-//     <h2>Животные</h2>
-
-//     <ul>
-//       <li>Кот</li>
-//       <li>Хомяк</li>
-//       <li>Лошадь</li>
-//       <li>Попугай</li>
-//     </ul>
-//   </li>
-//   <li class="item">
-//     <h2>Продукты</h2>
-
-//     <ul>
-//       <li>Хлеб</li>
-//       <li>Петрушка</li>
-//       <li>Творог</li>
-//     </ul>
-//   </li>
-//   <li class="item">
-//     <h2>Технологии</h2>
-
-//     <ul>
-//       <li>HTML</li>
-//       <li>CSS</li>
-//       <li>JavaScript</li>
-//       <li>React</li>
-//       <li>Node</li>
-//     </ul>
-//   </li>
-// </ul>
-// Напиши скрипт, который выполнит следующие операции.
-
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. Получится 'В списке 3 категории.'.
-
-// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента (тега h2) и количество элементов в категории (всех вложенных в него элементов li).
-
-// Например для первой категории получится:
-
-// Категория: Животные
-// Количество элементов: 4
-
-const getCategories = document.querySelectorAll('.item');
-console.log(`В списке ${getCategories.length} категории.`);
-
-const a = getCategories.querySelectorAll(#li);
-// console.log(getCategories.querySelector('.item'));
+for (const categorie of categorieEl) {
+    console.log(`Категория:`, categorie.querySelector('h2').textContent);
+    console.log(`Количество элементов: ${categorie.querySelectorAll('li').length}`);
+}
