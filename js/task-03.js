@@ -27,6 +27,16 @@ const images = [
 const imgEl = document.querySelector('#gallery');
 console.log(imgEl);
 
-const listImg = document.createElement('li');
-listImg.insertAdjacentHTML('afterend', '<div></div>');
-console.log(listImg);
+let ulLi=[];
+images.forEach(image => {
+  const listImg = document.createElement('li');
+  listImg.insertAdjacentHTML('beforeend', `<img src="${image.url}" alt="${image.alt}">`);
+  console.log(listImg);
+  return ulLi.push(listImg);
+});
+ 
+console.log(ulLi);
+
+const ulListEl = document.querySelector('#gallery');
+console.log(ulListEl);
+ulListEl.append(ulLi);
