@@ -8,8 +8,8 @@
 //   placeholder="Введи 6 символов"
 // />
 // Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
-// Если введено подходящее количество, то border инпута становится зеленым, если неправильное
-// - красным.
+// Если введено подходящее количество, то border инпута становится зеленым,
+// если неправильное - красным.
 // Для добавления стилей, используй CSS-классы valid и invalid.
 
 // #validation-input {
@@ -23,3 +23,13 @@
 // #validation-input.invalid {
 //   border-color: #f44336;
 // }
+
+const inputEl = document.querySelector('#validation-input');
+console.log(inputEl);
+
+inputEl.addEventListener('blur', () => {
+    console.log('blur');
+    if (inputEl.textContent.length >= 6) inputEl.classList.add('valid');
+    inputEl.classList.add('.valid');
+});
+inputEl.classList.add(valid);
