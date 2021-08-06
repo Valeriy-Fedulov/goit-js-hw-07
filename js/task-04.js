@@ -12,35 +12,20 @@
  
 let counterValue = 0;
 
-
-// increment(count) {
-
-// };
-
-// decrement(count) {
-
-// };
-
 const btnDecrement = document.querySelector('button[data-action="decrement"]');
 const btnIncrement = document.querySelector('button[data-action="increment"]');
-const spanEl = document.querySelector('#value');
 
-console.log(spanEl);
-console.log(btnDecrement);
-// console.log(btnDecrement[1].dataset.action);
-const decrement = () => {
-    
-   counterValue -= 1;
-       spanEl.textContent = counterValue;
-    console.log(`count: `, counterValue);
+const spanRef = document.querySelector('#value');
+
+function decrement() {
+    counterValue -= 1;
+    spanRef.textContent = counterValue;
 }
 
-const increment = () => {
-    
+function increment() {
    counterValue += 1;
-       spanEl.textContent = counterValue;
-    console.log(`count: `, counterValue);
-}
+   spanRef.textContent = counterValue;
+ }
 
 btnDecrement.addEventListener('click', decrement);
 btnIncrement.addEventListener('click', increment); 

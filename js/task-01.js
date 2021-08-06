@@ -1,7 +1,7 @@
-const liCategoriesEl = document.querySelectorAll('.item');
-console.log(`В списке ${liCategoriesEl.length} категории.`);
+const liCategoriesRef = document.querySelectorAll('.item');
+console.log(`В списке ${liCategoriesRef.length} категории.`);
 
-for (const categorie of liCategoriesEl) {
-    console.log(`Категория:`, categorie.querySelector('h2').textContent);
-    console.log(`Количество элементов: ${categorie.querySelectorAll('li').length}`);
-}
+liCategoriesRef.forEach(categorie => {
+    console.log(`Категория:`, categorie.firstElementChild.textContent);
+    console.log(`Количество элементов: ${categorie.lastElementChild.children.length}`);
+ });

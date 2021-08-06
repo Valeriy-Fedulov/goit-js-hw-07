@@ -1,14 +1,3 @@
-// Напиши скрипт для создания галлереи изображений по массиву данных.
-
-// В HTML есть список ul#gallery.
-
-// <ul id="gallery"></ul>
-// Используй массив объектов images для создания тегов img вложенных в li.
-// Для создания разметки используй шаблонные строки и insertAdjacentHTML().
-
-// Все элементы галереи должны добавляться в DOM за одну операцию вставки.
-// Добавь минимальное оформление галереи флексбоксами или гридами через css-классы.
-
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -24,19 +13,14 @@ const images = [
   },
 ];
 
-const imgEl = document.querySelector('#gallery');
-console.log(imgEl);
+const ulGalleryRef = document.querySelector('#gallery');
 
-let ulLi=[];
-images.forEach(image => {
-  const listImg = document.createElement('li');
-  listImg.insertAdjacentHTML('beforeend', `<img src="${image.url}" alt="${image.alt}">`);
-  console.log(listImg);
-  return ulLi.push(listImg);
+const list = images.map(image => {
+  const listImgRef = document.createElement('li');
+  listImgRef.insertAdjacentHTML('beforeend', `<img src="${image.url}" alt="${image.alt}" width=200px>`);
+  return listImgRef;
 });
  
-console.log(ulLi);
+ulGalleryRef.classList.add('picture');
 
-const ulListEl = document.querySelector('#gallery');
-console.log(ulListEl);
-ulListEl.append(ulLi);
+ulGalleryRef.append(...list);
