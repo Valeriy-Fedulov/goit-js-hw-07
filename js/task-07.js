@@ -5,3 +5,16 @@
 // <input id="font-size-control" type="range" />
 // <br />
 // <span id="text">Абракадабра!</span>
+
+const rangeRef = document.querySelector('#font-size-control');
+console.log(rangeRef);
+
+const spanRef = document.querySelector('#text');
+console.log(spanRef);
+
+
+rangeRef.addEventListener('mousemove', () => {
+    console.log(rangeRef.value);
+    spanRef.style.fontSize = `${rangeRef.value}px`;
+})
+
