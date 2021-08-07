@@ -10,11 +10,13 @@ const rangeRef = document.querySelector('#font-size-control');
 console.log(rangeRef);
 
 const spanRef = document.querySelector('#text');
-console.log(spanRef);
+console.log(document.querySelector('body').style);
 
 
-rangeRef.addEventListener('mousemove', () => {
-    console.log(rangeRef.value);
+rangeRef.addEventListener('input', () => {
+    
+    console.log(spanRef.style.fontSize);
+    console.log(spanRef.style.fontSize + rangeRef.value);
     spanRef.style.fontSize = `${rangeRef.value}px`;
 })
 
