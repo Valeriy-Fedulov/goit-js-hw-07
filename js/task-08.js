@@ -13,6 +13,8 @@ function createBoxes(amount) {
         arrayBoxs[i].style.height = `${30 + 10 * i}px`;
         arrayBoxs[i].style.width = `${30 + 10 * i}px`;
     };
+    inputNum.value = '';
+
     return document.querySelector('#boxes').append(...arrayBoxs);
 };
 
