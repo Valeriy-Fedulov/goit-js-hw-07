@@ -1,22 +1,25 @@
-// Напиши скрипт создания и очистки коллекции элементов.
-// Пользователь вводит количество элементов в input и нажимает кнопку Создать,
-// после чего рендерится коллекция.
-// При нажатии на кнопку Очистить, коллекция элементов очищается.
+const inputNum = document.querySelector('#controls').firstElementChild;
 
-// Создай функцию createBoxes(amount), которая принимает 1 параметр amount - число.
-// Функция создает столько div, сколько указано в amount и добавляет их в div#boxes.
+const btnRender = document.querySelector('button[data-action="render"]');
+const btnDestroy = document.querySelector('button[data-action="destroy"]');
 
-// Каждый созданный div:
+function createBoxes(amount) {
+    destroyBoxes();
 
-// Имеет случайный rgb цвет фона
-// Размеры самого первого div - 30px на 30px
-// Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
-// Создай функцию destroyBoxes(), которая очищает div#boxes.
+    const arrayBoxs = [];
+    for (let i = 0; i <= amount - 1; i += 1) {
+        arrayBoxs.push(document.createElement('div'));
+        arrayBoxs[i].style.backgroundColor = `RGB(${Math.random() * 256},${Math.random() * 256},${Math.random() * 256})`;
+        arrayBoxs[i].style.height = `${30 + 10 * i}px`;
+        arrayBoxs[i].style.width = `${30 + 10 * i}px`;
+    };
+    return document.querySelector('#boxes').append(...arrayBoxs);
+};
 
-// <div id="controls">
-//   <input type="number" min="0" max="100" step="1" />
-//   <button type="button" data-action="render">Создать</button>
-//   <button type="button" data-action="destroy">Очистить</button>
-// </div>
+function destroyBoxes() {
+    const divBoxes = document.querySelector('#boxes');
+    while (divBoxes.firstChild) { divBoxes.removeChild(divBoxes.firstChild); }
+};
 
-// <div id="boxes"></div>
+btnRender.addEventListener('click', () => createBoxes(inputNum.value));
+btnDestroy.addEventListener('click', destroyBoxes);
