@@ -10,13 +10,16 @@ const rangeRef = document.querySelector('#font-size-control');
 console.log(rangeRef);
 
 const spanRef = document.querySelector('#text');
-console.log(document.querySelector('body').style);
+
+rangeRef.step = parseInt(window.getComputedStyle(spanRef, null).fontSize) / 50;
 
 
 rangeRef.addEventListener('input', () => {
     
+    spanRef.style.fontSize = `${parseInt(window.getComputedStyle(spanRef, null).fontSize) + parseInt(rangeRef.value) - 50}px`;
     console.log(spanRef.style.fontSize);
-    console.log(spanRef.style.fontSize + rangeRef.value);
-    spanRef.style.fontSize = `${rangeRef.value}px`;
 })
 
+// rangeRef.addEventListener('input', () => {
+//     spanRef.style.fontSize = `${rangeRef.value}px`;
+// })
